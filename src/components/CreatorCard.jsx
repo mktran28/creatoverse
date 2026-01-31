@@ -1,22 +1,25 @@
-export default function CreatorCard({
-    name,
-    url,
-    description,
-    imageURL
-}) {
+export default function CreatorCard({creator}) {
+    const {name, url, description, imageURL} = creator;
+
+    if (!creator) {
+        return null;
+    }
+
     return (
-        <div>
+        <article>
             {imageURL && 
-                <img src={imageURL} alt={`Photo of ${name}`}/>
+                <img src = {imageURL} alt = {`Photo of ${name}`}/>
             }
 
-            <h2>{name}</h2>
+            <div>
+                <h2>{name}</h2>
 
-            <a href={url} target="_blank" rel="noopener noreferrer">
-                {url}
-            </a>
+                {url && (
+                    <a href = {url} target = "_blank" rel = "noreferrer">Visit channel</a>
+                )}
 
-            <p>{description}</p>
-        </div>
+                <p>{description}</p>
+            </div>
+        </article>
     )
 }
