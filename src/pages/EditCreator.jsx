@@ -59,6 +59,32 @@ export default function EditCreator() {
     if (loading) {
         return <div>Loading...</div>
     }
+
+    async function handleDelete() {
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this creator?"
+        );
+
+        if (!confirmDelete) {
+            return;
+        }
+
+        setSaving(true);
+        setError("")
+
+        const {error} = await supabase
+            .from('creators')
+            .delete()
+            .eq('id', id)
+
+        if (error) {
+            setError(error.message);
+            setSaving(false);
+            return;
+        }
+
+        navigate("/")
+    }
     
     return (
         <div>
@@ -110,6 +136,14 @@ export default function EditCreator() {
                     disabled = {saving}
                 >
                     {saving ? "Saving..." : "Save changes"}
+                </button>
+
+                <button
+                    type = "button"
+                    onClick = {handleDelete}
+                    disabled = {saving}
+                >
+                    Delete creator
                 </button>
             </form>
         </div>

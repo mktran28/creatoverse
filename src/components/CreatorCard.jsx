@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
+
 export default function CreatorCard({creator}) {
-    const {name, url, description, imageURL} = creator;
+    const {id, name, url, description, imageURL} = creator;
 
     if (!creator) {
         return null;
     }
 
     return (
-        <article>
+        <article className = "w-full max-w-xl mx-auto">
             {imageURL && 
                 <img src = {imageURL} alt = {`Photo of ${name}`}/>
             }
+
+            <Link to = {`/creators/${id}/edit`}>Edit</Link>
 
             <div>
                 <h2>{name}</h2>
