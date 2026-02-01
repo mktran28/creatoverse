@@ -27,7 +27,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src="https://drive.google.com/uc?export=view&id=1x3NwugfCLKoCKutQtE7mfvk1AO9gZWwi" title="Video Walkthrough" alt="Video Walkthrough" width="600"/>
+<iframe src = "https://drive.google.com/file/d/1x3NwugfCLKoCKutQtE7mfvk1AO9gZWwi/preview" width = "640" height = "480" allow = "autoplay"></iframe>
 
 ## License
 
